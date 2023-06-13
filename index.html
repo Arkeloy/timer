@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <style>
+        body, html {
+          height: 100%;
+          margin: 0;
+        }
+
+        .container {
+          display: flex;
+          height: 100%;
+        }
+
+        .column {
+          width: 20%;
+          background-color: #dddddd;
+          display: flex;
+          flex-direction: column;
+          justify-content: stretch;
+        }
+
+        .column.right {
+            width: 80%;
+            justify-content: center; /*Horizontal alignment*/
+            align-items: center; /*Vertical alignment*/
+        }
+
+        .column.right button {    /*Button allignment*/
+          display: inline-block;
+          margin: 5px;
+        }
+
+        .row {
+          justify-content: flex-start; /*Alligned to top*/
+          margin: 8px 0;
+          padding-left: 20px;
+        }
+
+        .row p {
+          margin: 2px 5px; /*Alligns text for minūtes and sekundes*/
+        }
+
+        .row h1 {
+          margin: 0;
+        }
+
+        .row h3 {
+          margin: 0;
+        }
+
+        .button-wrapper {
+          display: flex;
+        }
+
+        .button-wrapper button {
+          margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <div class="row">
+                <h1>Laika plānotājs</h1>
+                <h3>Saraksti aktivitātes nosaukumu un ilgumu!</h3>
+            </div>
+            <div class="row">
+                <p style="font-weight: bold;">Aktivitāte 1:</p>
+                <input type="text" id="activityNameInput1" placeholder="Aktivitātes nosaukums">
+                <p style="font-weight: bold;">Laiks:</p>
+                <div>
+                    <p style="display: inline-block;">Minūtes: </p><input type="number" id="minuteInput1" style="width: 50px;"><p style="display: inline-block;"> sekundes: </p><input type="number" id="secondInput1" style="width: 50px;">
+                </div>
+            </div>
+            <div class="row">
+                <p style="font-weight: bold;">Aktivitāte 2:</p>
+                <input type="text" id="activityNameInput2" placeholder="Aktivitātes nosaukums">
+                <p style="font-weight: bold;">Laiks:</p>
+                <div>
+                    <p style="display: inline-block;">Minūtes: </p><input type="number" id="minuteInput2" style="width: 50px;"><p style="display: inline-block;"> sekundes: </p><input type="number" id="secondInput2" style="width: 50px;">
+                </div>
+            </div>
+            <div class="row">
+                <p style="font-weight: bold;">Aktivitāte 3:</p>
+                <input type="text" id="activityNameInput3" placeholder="Aktivitātes nosaukums">
+                <p style="font-weight: bold;">Laiks:</p>
+                <div>
+                    <p style="display: inline-block;">Minūtes: </p><input type="number" id="minuteInput3" style="width: 50px;"><p style="display: inline-block;"> sekundes: </p><input type="number" id="secondInput3" style="width: 50px;">
+                </div>
+            </div>
+            <div class="row">
+                <p style="font-weight: bold;">Aktivitāte 4:</p>
+                <input type="text" id="activityNameInput4" placeholder="Aktivitātes nosaukums">
+                <p style="font-weight: bold;">Laiks:</p>
+                <div>
+                    <p style="display: inline-block;">Minūtes: </p><input type="number" id="minuteInput4" style="width: 50px;"><p style="display: inline-block;"> sekundes: </p><input type="number" id="secondInput4" style="width: 50px;">
+                </div>
+            </div>
+            <div class="row">
+                <p style="font-weight: bold;">Aktivitāte 5:</p>
+                <input type="text" id="activityNameInput5" placeholder="Aktivitātes nosaukums">
+                <p style="font-weight: bold;">Laiks:</p>
+                <div>
+                    <p style="display: inline-block;">Minūtes: </p><input type="number" id="minuteInput5" style="width: 50px;"><p style="display: inline-block;"> sekundes: </p><input type="number" id="secondInput5" style="width: 50px;">
+                </div>
+            </div>
+            <div class="row">
+                <p style="font-weight: bold;">Aktivitāte 6:</p>
+                <input type="text" id="activityNameInput6" placeholder="Aktivitātes nosaukums">
+                <p style="font-weight: bold;">Laiks:</p>
+                <div>
+                    <p style="display: inline-block;">Minūtes: </p><input type="number" id="minuteInput6" style="width: 50px;"><p style="display: inline-block;"> sekundes: </p><input type="number" id="secondInput6" style="width: 50px;">
+                </div>
+            </div>
+            <div class="row">
+                <p style="font-weight: bold;">Aktivitāte 7:</p>
+                <input type="text" id="activityNameInput7" placeholder="Aktivitātes nosaukums">
+                <p style="font-weight: bold;">Laiks:</p>
+                <div>
+                    <p style="display: inline-block;">Minūtes: </p><input type="number" id="minuteInput7" style="width: 50px;"><p style="display: inline-block;"> sekundes: </p><input type="number" id="secondInput7" style="width: 50px;">
+                </div>
+            </div>
+            <div class="row">
+                <p style="font-weight: bold;">Aktivitāte 8:</p>
+                <input type="text" id="activityNameInput8" placeholder="Aktivitātes nosaukums">
+                <p style="font-weight: bold;">Laiks:</p>
+                <div>
+                    <p style="display: inline-block;">Minūtes: </p><input type="number" id="minuteInput8" style="width: 50px;"><p style="display: inline-block;"> sekundes: </p><input type="number" id="secondInput8" style="width: 50px;">
+                </div>
+            </div>
+        </div>
+        <div class="column right">
+            <h2 id="timer" style="font-size: 70px;">00:00</h2>
+            <p id="activityName" style="font-size: 30px;"></p>
+            <div class="button-wrapper">
+                <button id="startButton">Sākt</button>
+                <button id="stopButton">Beigt</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            const timerElement = document.getElementById('timer');
+            const activityNameElement = document.getElementById('activityName');
+            const startButton = document.getElementById('startButton');
+            const stopButton = document.getElementById('stopButton');
+            const activityNameInputs = [
+                document.getElementById('activityNameInput1'),
+                document.getElementById('activityNameInput2'),
+                document.getElementById('activityNameInput3'),
+                document.getElementById('activityNameInput4'),
+                document.getElementById('activityNameInput5'),
+                document.getElementById('activityNameInput6'),
+                document.getElementById('activityNameInput7'),
+                document.getElementById('activityNameInput8')
+            ];
+
+            const minuteInputs = [
+                document.getElementById('minuteInput1'),
+                document.getElementById('minuteInput2'),
+                document.getElementById('minuteInput3'),
+                document.getElementById('minuteInput4'),
+                document.getElementById('minuteInput5'),
+                document.getElementById('minuteInput6'),
+                document.getElementById('minuteInput7'),
+                document.getElementById('minuteInput8')
+            ];
+
+            const secondInputs = [
+                document.getElementById('secondInput1'),
+                document.getElementById('secondInput2'),
+                document.getElementById('secondInput3'),
+                document.getElementById('secondInput4'),
+                document.getElementById('secondInput5'),
+                document.getElementById('secondInput6'),
+                document.getElementById('secondInput7'),
+                document.getElementById('secondInput8')
+            ];
+
+            let currentActivity = 0;
+            let minutes = 0;
+            let seconds = 0;
+            let timerInterval;
+    
+            function startTimer() {
+                if (timerInterval) {
+                    return;
+                }
+    
+                if (checkTimeFormat() === false) {
+                    timerElement.textContent = 'Incorrect time format';
+                    return;
+                }
+    
+                currentActivity = 0;
+                startNextActivity();
+            }
+    
+            function startNextActivity() {
+                currentActivity++;
+                if (currentActivity <= activityNameInputs.length) {
+                    minutes = parseInt(minuteInputs[currentActivity - 1].value) || 0;
+                    seconds = parseInt(secondInputs[currentActivity - 1].value) || 0;
+    
+                    updateActivityName();
+                    timerInterval = setInterval(updateTimer, 1000);
+                    updateTimer();
+                } 
+                else {
+                    stopTimer();
+                    activityNameElement.textContent = 'Plāns izdarīts!';
+                }
+            }
+    
+            function updateTimer() {
+                if (minutes === 0 && seconds === 0) {
+                    stopTimer();
+                    startNextActivity();
+                    return;
+                }
+    
+                if (seconds === 0) {
+                    minutes--;
+                    seconds = 59;
+                } 
+                else {
+                    seconds--;
+                }
+    
+                timerElement.textContent = formatTime(minutes) + ':' + formatTime(seconds);
+            }
+    
+            function stopTimer() {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                timerElement.textContent = '00:00';
+            }
+    
+            function updateActivityName() {
+                const activityName = activityNameElement;
+                const activityNameInput = activityNameInputs[currentActivity - 1];
+                const activityNameValue = activityNameInput.value.trim();
+                
+                if (activityNameValue !== '') {
+                    activityName.textContent = activityNameValue;
+                }
+            }
+    
+            function formatTime(time) {
+                return time < 10 ? '0' + time : time;
+            }
+    
+            function checkTimeFormat() {
+                for (let i = 0; i < minuteInputs.length; i++) {
+                    const minutesValue = parseInt(minuteInputs[i].value) || 0;
+                    const secondsValue = parseInt(secondInputs[i].value) || 0;
+    
+                    if (minutesValue < 0 || secondsValue < 0 || secondsValue > 59) {
+                        return false;
+                    }
+                }
+    
+                return true;
+            }
+    
+            startButton.addEventListener('click', startTimer);
+            stopButton.addEventListener('click', stopTimer);
+        });
+    </script>
+</body>
+</html>
